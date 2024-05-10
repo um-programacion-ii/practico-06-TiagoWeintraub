@@ -10,6 +10,7 @@ import java.util.HashMap;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Drogueria {
+    private String id;
     private String nombre;
     private String direccion;
     private String telefono;

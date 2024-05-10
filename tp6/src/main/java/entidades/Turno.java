@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import servicios.ServicioGestionTurno;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +17,7 @@ public class Turno {
     private Medico medico;
     private String nombreMedico;
     private String apellidoMedico;
-    private String especialidadMedico;
+    private Especialidad especialidadMedico;
     private String obraSocial;
     private boolean terminado;
     private boolean recetaGenerada;

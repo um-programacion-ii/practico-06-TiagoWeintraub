@@ -10,15 +10,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Paciente {
+    private String dni;
     private String nombre;
     private String apellido;
-    private String dni;
     private boolean usaObraSocial;
-    private String obraSocial;
+    private ObraSocial obraSocial;
     private List<Receta> recetas;
-    private String especialidad;
 
-    public void agregarReceta(Receta receta) {
+    public void recibirReceta(Receta receta) {
         this.recetas.add(receta);
+    }
+
+    public void solicitarTurno(Medico medico, Especialidad especialidad, boolean usaObraSocial) {
+        // Implementa la lógica para solicitar un turno con un médico
     }
 }

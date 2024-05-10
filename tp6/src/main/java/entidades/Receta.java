@@ -14,12 +14,6 @@ public class Receta {
     private Medico medico;
     private Map<Medicamento, Integer> medicamentos;
 
-    //public Receta(Paciente paciente, Medico medico) {
-    //    this.paciente = paciente;
-    //    this.medico = medico;
-    //    this.medicamentos = new HashMap<>();
-    //}
-
     public void agregarMedicamento(Medicamento medicamento, Integer cantidad) {
         this.medicamentos.put(medicamento, cantidad);
     }

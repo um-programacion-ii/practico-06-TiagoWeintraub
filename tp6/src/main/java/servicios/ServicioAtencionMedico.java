@@ -49,8 +49,8 @@ public class ServicioAtencionMedico {
         //colaPersonas.add(paciente);
     }
 
-    public Persona obtenerPersona(String especialidad) {
-        Queue<Persona> colaPersonas = personasPorEspecialidad.get(especialidad);
+    public Paciente obtenerPersona(String especialidad) {
+        Queue<Paciente> colaPersonas = personasPorEspecialidad.get(especialidad);
         if (colaPersonas != null && !colaPersonas.isEmpty()) {
             return colaPersonas.poll();
         }

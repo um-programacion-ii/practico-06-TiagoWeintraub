@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ObraSocial {
-    private String id;
+    private Integer id;
     private String nombre;
 }
+

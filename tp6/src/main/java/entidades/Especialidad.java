@@ -11,6 +11,6 @@ import java.util.Random;
 @NoArgsConstructor
 
 public class Especialidad {
-    private String id;
+    private Integer id;
     private String nombre;
 }

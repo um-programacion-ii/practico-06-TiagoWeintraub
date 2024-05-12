@@ -10,18 +10,20 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Paciente {
-    private String dni;
+    private Integer dni;
     private String nombre;
     private String apellido;
-    private boolean usaObraSocial;
-    private ObraSocial obraSocial;
-    private List<Receta> recetas;
-
-    public void recibirReceta(Receta receta) {
+    private List<String> obrasSociales; // Si no tiene obra social, la lista estará vacía (Visita particular)
+    private List<String> recetas;
+    public void recibirReceta(String receta) {
         this.recetas.add(receta);
     }
 
-    public void solicitarTurno(Medico medico, Especialidad especialidad, boolean usaObraSocial) {
+    public void solicitarTurno(String medico, String especialidad, String obraSocial) {
         // Implementa la lógica para solicitar un turno con un médico
+    }
+
+    public void comprarMedicamentos(String farmacia, String receta) {
+        // Implementa la lógica para comprar los medicamentos de una receta en una droguería
     }
 }

@@ -3,16 +3,21 @@ package entidades;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.HashMap;
+import java.util.Map;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Drogueria {
-    private String id;
+    private Integer id;
     private String nombre;
     private String direccion;
-    private String telefono;
-    private HashMap<String, Medicamento> stockMedicamentosDrogueria;
+    private Integer telefono;
 }
+
+//public void entregarPedido(Integer id, String receta, Integer cantidad) {
+//        Medicamento medicamento = entry.getKey();
+//        Integer cantidadNecesaria = entry.getValue();
+//}

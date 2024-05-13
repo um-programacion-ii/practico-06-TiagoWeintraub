@@ -1,16 +1,15 @@
-package entidades;
+package clinica.entidades;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class Medicamento {
+public class ObraSocial {
     private Integer id;
     private String nombre;
-    private String laboratorio;
-    private String droga;
 }
+

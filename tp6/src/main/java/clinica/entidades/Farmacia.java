@@ -1,11 +1,9 @@
-package entidades;
+package clinica.entidades;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-import java.util.Random;
 import java.util.Map;
 
 @Data

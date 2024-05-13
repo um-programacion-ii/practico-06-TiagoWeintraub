@@ -10,18 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RecetaDAOImpl implements RecetaDAO {
-    private static RecetaDAOImpl instancia;
     private final Map<Integer, Receta> recetas = new HashMap<>();
     private int proximoId = 1;
 
     private RecetaDAOImpl() {}
 
-    public static RecetaDAOImpl getInstance() {
-        if (instancia == null) {
-            instancia = new RecetaDAOImpl();
-        }
-        return instancia;
-    }
 
     @Override
     public Receta crearReceta(Receta receta) {

@@ -10,18 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DrogueriaDAOImpl implements DrogueriaDAO {
-    private static DrogueriaDAOImpl instancia;
     private final Map<Integer, Drogueria> droguerias = new HashMap<>();
     private int proximoId = 1;
 
     private DrogueriaDAOImpl() {}
-
-    public static DrogueriaDAOImpl getInstance() {
-        if (instancia == null) {
-            instancia = new DrogueriaDAOImpl();
-        }
-        return instancia;
-    }
 
     @Override
     public Drogueria crearDrogueria(Drogueria drogueria) {

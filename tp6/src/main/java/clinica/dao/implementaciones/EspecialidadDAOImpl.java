@@ -7,18 +7,10 @@ import java.util.Map;
 
 
 public class EspecialidadDAOImpl implements EspecialidadDAO {
-    private static EspecialidadDAOImpl instancia;
     private final Map<Integer, Especialidad> especialidades = new HashMap<>();
     private int proximoId = 1;
 
     private EspecialidadDAOImpl() {}
-
-    public static EspecialidadDAOImpl getInstance() {
-        if (instancia == null) {
-            instancia = new EspecialidadDAOImpl();
-        }
-        return instancia;
-    }
 
     @Override
     public Especialidad crearEspecialidad(Especialidad especialidad) {

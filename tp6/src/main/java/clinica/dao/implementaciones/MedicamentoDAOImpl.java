@@ -6,18 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MedicamentoDAOImpl implements MedicamentoDAO {
-    private static MedicamentoDAOImpl instancia;
     private final Map<Integer, Medicamento> medicamentos = new HashMap<>();
     private int proximoId = 1;
 
     private MedicamentoDAOImpl() {}
 
-    public static MedicamentoDAOImpl getInstance() {
-        if (instancia == null) {
-            instancia = new MedicamentoDAOImpl();
-        }
-        return instancia;
-    }
 
     @Override
     public Medicamento crearMedicamento(Medicamento medicamento) {

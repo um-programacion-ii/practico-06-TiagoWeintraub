@@ -6,18 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TurnoDAOImpl implements TurnoDAO {
-    private static TurnoDAOImpl instancia;
     private final Map<Integer, Turno> turnos = new HashMap<>();
     private int proximoId = 1;
 
     private TurnoDAOImpl() {}
 
-    public static TurnoDAOImpl getInstance() {
-        if (instancia == null) {
-            instancia = new TurnoDAOImpl();
-        }
-        return instancia;
-    }
 
     @Override
     public Turno crearTurno(Turno turno) {

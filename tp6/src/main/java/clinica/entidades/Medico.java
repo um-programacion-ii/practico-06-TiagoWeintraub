@@ -14,8 +14,9 @@ public class Medico {
     private Integer id;
     private String nombre;
     private String apellido;
-    private String especialidad;
+    private Especialidad especialidad;
     private List<ObraSocial> obrasSociales;
+    private List<Turno> turnos;
     private Boolean estaAtendiendo;
 
 public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<String, Integer> medicamentos) {
@@ -29,5 +30,9 @@ public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<String
 
     public void finalizarAtencion() {
         this.estaAtendiendo = false;
+    }
+
+    public void turnoCanceladoPorPaciente(Turno turno) {
+        this.turnos.remove(turno);
     }
 }

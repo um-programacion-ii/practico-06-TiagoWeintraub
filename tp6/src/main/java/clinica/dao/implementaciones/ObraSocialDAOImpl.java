@@ -9,18 +9,10 @@ import java.util.Map;
 import java.util.ArrayList;
 
 public class ObraSocialDAOImpl implements ObraSocialDAO {
-    private static ObraSocialDAOImpl instancia;
     private final Map<Integer, ObraSocial> obrasSociales = new HashMap<>();
     private int proximoId = 1;
 
     private ObraSocialDAOImpl() {}
-
-    public static ObraSocialDAOImpl getInstance() {
-        if (instancia == null) {
-            instancia = new ObraSocialDAOImpl();
-        }
-        return instancia;
-    }
 
     @Override
     public ObraSocial crearObraSocial(ObraSocial obraSocial) {

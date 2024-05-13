@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import clinica.servicios.GestionTurnoService;
 
 
 public class MedicoDAOImpl implements MedicoDAO {
@@ -21,7 +22,7 @@ public class MedicoDAOImpl implements MedicoDAO {
     public Medico crearMedico(Medico medico) {
         medico.setId(proximoId++);
         medicos.put(medico.getId(), medico);
-//        GestionTurnoService.
+        GestionTurnoService.getInstance().listaMedicos().add(medico);
         return medico;
     }
 

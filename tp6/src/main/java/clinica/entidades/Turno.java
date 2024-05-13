@@ -12,4 +12,6 @@ public class Turno {
     private Integer id;
     private Paciente paciente;
     private Medico medico;
+    private Especialidad especialidad;
+    private ObraSocial obraSocial;
 }

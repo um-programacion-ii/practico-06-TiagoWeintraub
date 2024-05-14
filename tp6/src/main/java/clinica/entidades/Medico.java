@@ -16,6 +16,7 @@ public class Medico {
     private String apellido;
     private Especialidad especialidad;
     private List<ObraSocial> obrasSociales;
+    private Boolean atiendeParticular;
     private List<Turno> turnos;
     private Boolean estaAtendiendo;
 

@@ -22,7 +22,6 @@ public class MedicoDAOImpl implements MedicoDAO {
     public Medico crearMedico(Medico medico) {
         medico.setId(proximoId++);
         medicos.put(medico.getId(), medico);
-        GestionTurnoService.getInstance().listaMedicos().add(medico);
         return medico;
     }
 

@@ -13,9 +13,6 @@ public class RecetaDAOImpl implements RecetaDAO {
     private final Map<Integer, Receta> recetas = new HashMap<>();
     private int proximoId = 1;
 
-    private RecetaDAOImpl() {}
-
-
     @Override
     public Receta crearReceta(Receta receta) {
         receta.setId(proximoId++);

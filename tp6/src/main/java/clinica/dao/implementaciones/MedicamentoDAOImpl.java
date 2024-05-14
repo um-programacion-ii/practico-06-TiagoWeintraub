@@ -9,9 +9,6 @@ public class MedicamentoDAOImpl implements MedicamentoDAO {
     private final Map<Integer, Medicamento> medicamentos = new HashMap<>();
     private int proximoId = 1;
 
-    private MedicamentoDAOImpl() {}
-
-
     @Override
     public Medicamento crearMedicamento(Medicamento medicamento) {
         medicamento.setId(proximoId++);

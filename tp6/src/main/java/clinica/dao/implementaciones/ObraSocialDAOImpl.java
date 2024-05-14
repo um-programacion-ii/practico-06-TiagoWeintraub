@@ -12,8 +12,6 @@ public class ObraSocialDAOImpl implements ObraSocialDAO {
     private final Map<Integer, ObraSocial> obrasSociales = new HashMap<>();
     private int proximoId = 1;
 
-    private ObraSocialDAOImpl() {}
-
     @Override
     public ObraSocial crearObraSocial(ObraSocial obraSocial) {
         obraSocial.setId(proximoId++);

@@ -9,8 +9,6 @@ public class PacienteDAOImpl implements PacienteDAO {
     private final Map<Integer, Paciente> pacientes = new HashMap<>();
     private int proximoId = 1;
 
-    private PacienteDAOImpl() {}
-
     @Override
     public Paciente crearPaciente(Paciente paciente) {
         paciente.setDni(proximoId++);

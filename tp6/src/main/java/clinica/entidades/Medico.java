@@ -33,7 +33,7 @@ public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<String
         this.estaAtendiendo = false;
     }
 
-    public void turnoCanceladoPorPaciente(Turno turno) {
+    public void cancelarTurno(Turno turno) {
         this.turnos.remove(turno);
     }
 }

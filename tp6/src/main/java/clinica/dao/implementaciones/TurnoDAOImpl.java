@@ -9,9 +9,6 @@ public class TurnoDAOImpl implements TurnoDAO {
     private final Map<Integer, Turno> turnos = new HashMap<>();
     private int proximoId = 1;
 
-    private TurnoDAOImpl() {}
-
-
     @Override
     public Turno crearTurno(Turno turno) {
         turno.setId(proximoId++);

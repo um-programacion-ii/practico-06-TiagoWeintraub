@@ -13,8 +13,6 @@ public class FarmaciaDAOImpl implements FarmaciaDAO {
     private final Map<Integer, Farmacia> farmacias = new HashMap<>();
     private int proximoId = 1;
 
-    private FarmaciaDAOImpl() {}
-
     @Override
     public Farmacia crearFarmacia(Farmacia farmacia) {
         farmacia.setId(proximoId++);

@@ -13,8 +13,6 @@ public class DrogueriaDAOImpl implements DrogueriaDAO {
     private final Map<Integer, Drogueria> droguerias = new HashMap<>();
     private int proximoId = 1;
 
-    private DrogueriaDAOImpl() {}
-
     @Override
     public Drogueria crearDrogueria(Drogueria drogueria) {
         drogueria.setId(proximoId++);

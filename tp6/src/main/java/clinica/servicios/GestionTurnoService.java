@@ -1,7 +1,7 @@
 package clinica.servicios;
 
-import clinica.dao.interfaces.TurnoDAO;
-import clinica.dao.interfaces.MedicoDAO;
+import clinica.dao.implementaciones.TurnoDAOImpl;
+import clinica.dao.implementaciones.MedicoDAOImpl;
 import clinica.entidades.*;
 
 import java.util.ArrayList;
@@ -10,15 +10,21 @@ import java.util.List;
 
 public class GestionTurnoService {
     private static GestionTurnoService instancia;
-    private TurnoDAO turnoDAO;
-    private MedicoDAO medicoDAO;
+    private TurnoDAOImpl turnoDAO;
+    private MedicoDAOImpl medicoDAO;
 
 // Implementación de singleton
     public static GestionTurnoService getInstance() {
         if (instancia == null) {
             instancia = new GestionTurnoService();
+
         }
         return instancia;
+    }
+
+    public GestionTurnoService() {
+        turnoDAO = new TurnoDAOImpl();
+        medicoDAO = new MedicoDAOImpl();
     }
 
     // Listar todos los medicos
@@ -44,23 +50,22 @@ public class GestionTurnoService {
     }
 
 
-    public Turno pacienteSolicitaTurno(Paciente paciente, Medico medico) throws IllegalArgumentException {
-        if (paciente.getObraSocial().equals(null) && medico.getAtiendeParticular()) { //Turno particular
+    public Turno pacienteSolicitaTurno(Paciente paciente, Medico medico, Especialidad especialidad) {
+        if (paciente.getObraSocial() == null && medico.getAtiendeParticular() && especialidad == medico.getEspecialidad()) { // Turno particular
             return turnoDAO.crearTurno(paciente.solicitarTurno(medico, medico.getEspecialidad(), null));
         }
-
         // Si la obra social del paciente está en la lista de obras sociales del médico se saca el turno
-        else if (medico.getObrasSociales().contains(paciente.getObraSocial())){
+        else if (paciente.getObraSocial() != null && medico.getObrasSociales().contains(paciente.getObraSocial()) && especialidad == medico.getEspecialidad()) {
             return turnoDAO.crearTurno(paciente.solicitarTurno(medico, medico.getEspecialidad(), paciente.getObraSocial()));
-        }
-      else {
+        } else {
             throw new IllegalArgumentException("El médico no atiende a la obra social del paciente");
         }
     }
 
+
     public void finalizarTurno(Paciente paciente, Turno turno, Medico medico) {
         paciente.cancelarTurno(turno);
-        medico.turnoCanceladoPorPaciente(turno);
+        medico.cancelarTurno(turno);
         turnoDAO.eliminarTurno(turno.getId());
     }
 

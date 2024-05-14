@@ -2,7 +2,7 @@ package clinica.dao.interfaces;
 
 import clinica.entidades.Drogueria;
 
-public interface DrogueriaDAO {
+public interface DrogueriaDao {
     Drogueria crearDrogueria(Drogueria drogueria);
     Drogueria visualizarDrogueria(int id);
     void actualizarDrogueria(Drogueria drogueria);

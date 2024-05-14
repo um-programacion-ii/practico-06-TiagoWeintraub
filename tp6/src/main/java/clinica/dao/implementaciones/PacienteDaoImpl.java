@@ -1,11 +1,11 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.PacienteDAO;
+import clinica.dao.interfaces.PacienteDao;
 import clinica.entidades.Paciente;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PacienteDAOImpl implements PacienteDAO {
+public class PacienteDaoImpl implements PacienteDao {
     private final Map<Integer, Paciente> pacientes = new HashMap<>();
     private int proximoId = 1;
 

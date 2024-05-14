@@ -6,31 +6,32 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import clinica.servicios.GestionTurnoService;
-import clinica.dao.interfaces.TurnoDAO;
-import clinica.dao.implementaciones.TurnoDAOImpl;
-import clinica.dao.interfaces.MedicoDAO;
-import clinica.dao.implementaciones.MedicoDAOImpl;
-import clinica.dao.interfaces.PacienteDAO;
-import clinica.dao.implementaciones.PacienteDAOImpl;
-import clinica.dao.interfaces.ObraSocialDAO;
-import clinica.dao.implementaciones.ObraSocialDAOImpl;
+import clinica.dao.interfaces.TurnoDao;
+import clinica.dao.implementaciones.TurnoDaoImpl;
+import clinica.dao.interfaces.MedicoDao;
+import clinica.dao.implementaciones.MedicoDaoImpl;
+import clinica.dao.interfaces.PacienteDao;
+import clinica.dao.interfaces.ObraSocialDao;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class testGestionTurnoService {
     private GestionTurnoService gestionTurnoService;
-    private TurnoDAO turnoDAO;
-    private MedicoDAO medicoDAO;
-    private PacienteDAO pacienteDAO;
-    private ObraSocialDAO obraSocialDAO;
+    private TurnoDao turnoDAO;
+    private MedicoDao medicoDAO;
+    private PacienteDao pacienteDAO;
+    private ObraSocialDao obraSocialDAO;
 
 
 
     @BeforeEach
     public void setUp() {
         gestionTurnoService = GestionTurnoService.getInstance();
-        turnoDAO = new TurnoDAOImpl();
-        medicoDAO = new MedicoDAOImpl();
+        turnoDAO = new TurnoDaoImpl();
+        medicoDAO = new MedicoDaoImpl();
     }
 
     @Test
@@ -75,52 +76,99 @@ public class testGestionTurnoService {
         assertEquals(listaMedicosTest, medicoDAO.listaMedicos());
     }
 
-
-//    @Test
-
-//    @Test
-
-
-
-
-
-
+    // test lista de medicos
     @Test
-    public void testPacienteSolicitaTurnoConObraSocial() {
+    public void testListaMedicosParticular() {
         List<ObraSocial> listaObrasSociales = new ArrayList<>();
         ObraSocial obraSocial1 = new ObraSocial(1, "OSDE");
         ObraSocial obraSocial2 = new ObraSocial(2, "Swiss Medical");
-        listaObrasSociales.add(obraSocial1);
-        listaObrasSociales.add(obraSocial2);
+
+        List<Medico> listaMedicosTest = new ArrayList<>();
 
         Especialidad especialidad = new Especialidad(1, "Cardiologia");
 
-        Medico medico = new Medico();
-        medico.setNombre("Juan");
-        medico.setApellido("Perez");
-        medico.setEspecialidad(especialidad);
-        medico.setObrasSociales(listaObrasSociales);
-        medico.setAtiendeParticular(true);
-        medico.setEstaAtendiendo(false);
-        List<Turno> listaTurnosMedico = new ArrayList<>();
-        medico.setTurnos(listaTurnosMedico);
+        Medico medico1 = new Medico();
+        medico1.setId(1);
+        medico1.setNombre("Juan");
+        medico1.setApellido("Perez");
+        medico1.setEspecialidad(especialidad);
+        medico1.setObrasSociales(listaObrasSociales);
+        medico1.setAtiendeParticular(true);
+        medico1.setEstaAtendiendo(false);
+        List<Turno> listaTurnosMedico1 = new ArrayList<>();
+        medico1.setTurnos(listaTurnosMedico1);
+        medicoDAO.crearMedico(medico1);
 
-        Paciente paciente = new Paciente();
-        paciente.setDni(40123432);
-        paciente.setNombre("Maria");
-        paciente.setApellido("Gomez");
-        paciente.setObraSocial(obraSocial1);
-        paciente.setRecetas(null);
-        List<Turno> listaTurnosPaciente = new ArrayList<>();
-        paciente.setTurnos(listaTurnosPaciente);
+        listaMedicosTest.add(medico1);
 
-        Turno turno = new Turno();
-        turno.setId(1);
-        turno.setPaciente(paciente);
-        turno.setMedico(medico);
-        turno.setEspecialidad(especialidad);
-        turno.setObraSocial(obraSocial1);
-        assertEquals(turno, gestionTurnoService.pacienteSolicitaTurno(paciente, medico, especialidad));
+        Medico medico2 = new Medico();
+        medico2.setId(2);
+        medico2.setNombre("Juan");
+        medico2.setApellido("Perez");
+        medico2.setEspecialidad(especialidad);
+        medico2.setObrasSociales(listaObrasSociales);
+        medico2.setAtiendeParticular(true);
+        medico2.setEstaAtendiendo(false);
+        List<Turno> listaTurnosMedico2 = new ArrayList<>();
+        medico2.setTurnos(listaTurnosMedico2);
+        medicoDAO.crearMedico(medico2);
+
+        listaMedicosTest.add(medico2);
+
+        assertEquals(listaMedicosTest, medicoDAO.listaMedicosParticular());
+    }
+
+    // test lista de medicos por especialidad
+    @Test
+    public void testListaMedicosPorEspecialidad() {
+        List<ObraSocial> listaObrasSociales1 = new ArrayList<>();
+        ObraSocial obraSocial1 = new ObraSocial(1, "OSDE");
+        ObraSocial obraSocial2 = new ObraSocial(2, "Swiss Medical");
+        ObraSocial obraSocial3 = new ObraSocial(3, "OSEP");
+        ObraSocial obraSocial4 = new ObraSocial(4, "PAMI");
+
+        List<Medico> listaMedicosTest = new ArrayList<>();
+
+        Especialidad especialidad = new Especialidad(1, "Cardiologia");
+
+        Medico medico1 = new Medico();
+        medico1.setId(1);
+        medico1.setNombre("Juan");
+        medico1.setApellido("Perez");
+        medico1.setEspecialidad(especialidad);
+        medico1.setObrasSociales(listaObrasSociales1);
+        medico1.setAtiendeParticular(true);
+        medico1.setEstaAtendiendo(false);
+        List<Turno> listaTurnosMedico1 = new ArrayList<>();
+        medico1.setTurnos(listaTurnosMedico1);
+        medicoDAO.crearMedico(medico1);
+        listaMedicosTest.add(medico1);
+
+
+        List<ObraSocial> listaObrasSociales2 = new ArrayList<>();
+        listaObrasSociales2.add(obraSocial1);
+        listaObrasSociales2.add(obraSocial2);
+        listaObrasSociales2.add(obraSocial3);
+        listaObrasSociales2.add(obraSocial4);
+
+        Medico medico2 = new Medico();
+        medico2.setId(2);
+        medico2.setNombre("Juan");
+        medico2.setApellido("Perez");
+        medico2.setEspecialidad(especialidad);
+        medico2.setObrasSociales(listaObrasSociales2);
+        medico2.setAtiendeParticular(true);
+        medico2.setEstaAtendiendo(false);
+        List<Turno> listaTurnosMedico2 = new ArrayList<>();
+        medico2.setTurnos(listaTurnosMedico2);
+        medicoDAO.crearMedico(medico2);
+        listaMedicosTest.add(medico2);
+
+        Map<Medico, List<ObraSocial>> medicosMap = new HashMap<>();
+        medicosMap.put(medico1, listaObrasSociales1);
+        medicosMap.put(medico2, listaObrasSociales2);
+
+        assertEquals(medicosMap, medicoDAO.listaMedicosPorEspecialidad(especialidad));
     }
 
     @Test
@@ -164,6 +212,44 @@ public class testGestionTurnoService {
         assertEquals(turno, turnoCreado);
         assertEquals(1, medico.getTurnos().size());
         assertEquals(medico.getTurnos(), paciente.getTurnos());
+    }
+
+    @Test
+    public void testPacienteSolicitaTurnoConObraSocial() {
+        List<ObraSocial> listaObrasSociales = new ArrayList<>();
+        ObraSocial obraSocial1 = new ObraSocial(1, "OSDE");
+        ObraSocial obraSocial2 = new ObraSocial(2, "Swiss Medical");
+        listaObrasSociales.add(obraSocial1);
+        listaObrasSociales.add(obraSocial2);
+
+        Especialidad especialidad = new Especialidad(1, "Cardiologia");
+
+        Medico medico = new Medico();
+        medico.setNombre("Juan");
+        medico.setApellido("Perez");
+        medico.setEspecialidad(especialidad);
+        medico.setObrasSociales(listaObrasSociales);
+        medico.setAtiendeParticular(true);
+        medico.setEstaAtendiendo(false);
+        List<Turno> listaTurnosMedico = new ArrayList<>();
+        medico.setTurnos(listaTurnosMedico);
+
+        Paciente paciente = new Paciente();
+        paciente.setDni(40123432);
+        paciente.setNombre("Maria");
+        paciente.setApellido("Gomez");
+        paciente.setObraSocial(obraSocial1);
+        paciente.setRecetas(null);
+        List<Turno> listaTurnosPaciente = new ArrayList<>();
+        paciente.setTurnos(listaTurnosPaciente);
+
+        Turno turno = new Turno();
+        turno.setId(1);
+        turno.setPaciente(paciente);
+        turno.setMedico(medico);
+        turno.setEspecialidad(especialidad);
+        turno.setObraSocial(obraSocial1);
+        assertEquals(turno, gestionTurnoService.pacienteSolicitaTurno(paciente, medico, especialidad));
     }
 
     @Test

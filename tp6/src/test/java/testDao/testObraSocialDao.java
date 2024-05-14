@@ -1,23 +1,19 @@
 package testDao;
 
-import clinica.dao.implementaciones.ObraSocialDAOImpl;
-import clinica.dao.interfaces.ObraSocialDAO;
-import clinica.entidades.ObraSocial;
-import clinica.entidades.Paciente;
+import clinica.dao.implementaciones.*;
+import clinica.entidades.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-
-public class TestObraSocialDAO { //Tests de la clase ObraSocialDAO
-    private ObraSocialDAO obraSocialDAO;
+public class testObraSocialDao { //Tests de la clase ObraSocialDAO
+    private ObraSocialDaoImpl obraSocialDAO;
     private ObraSocial obraSocial;
     private Paciente paciente;
 
     @BeforeEach
     public void setUp() {
-        obraSocialDAO = new ObraSocialDAOImpl();
+        obraSocialDAO = new ObraSocialDaoImpl();
     }
 
     @Test

@@ -1,11 +1,11 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.TurnoDAO;
+import clinica.dao.interfaces.TurnoDao;
 import clinica.entidades.Turno;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TurnoDAOImpl implements TurnoDAO {
+public class TurnoDaoImpl implements TurnoDao {
     private final Map<Integer, Turno> turnos = new HashMap<>();
     private int proximoId = 1;
 

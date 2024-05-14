@@ -1,14 +1,12 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.ObraSocialDAO;
+import clinica.dao.interfaces.ObraSocialDao;
 import clinica.entidades.ObraSocial;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
 
-public class ObraSocialDAOImpl implements ObraSocialDAO {
+public class ObraSocialDaoImpl implements ObraSocialDao {
     private final Map<Integer, ObraSocial> obrasSociales = new HashMap<>();
     private int proximoId = 1;
 

@@ -1,21 +1,18 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.MedicoDAO;
+import clinica.dao.interfaces.MedicoDao;
 import clinica.entidades.Medico;
 import clinica.entidades.ObraSocial;
 import clinica.entidades.Especialidad;
-import clinica.servicios.GestionTurnoService;
-
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import clinica.servicios.GestionTurnoService;
 
 
-public class MedicoDAOImpl implements MedicoDAO {
+public class MedicoDaoImpl implements MedicoDao {
     private final Map<Integer, Medico> medicos = new HashMap<>();
 
     private int proximoId = 1;
@@ -24,7 +21,6 @@ public class MedicoDAOImpl implements MedicoDAO {
     public Medico crearMedico(Medico medico) {
         medico.setId(proximoId++);
         medicos.put(medico.getId(), medico);
-        // Cada vez que se crea un medico se agrega a la lista de todos los medicos
         this.listaMedicos().add(medico);
         return medico;
     }

@@ -1,15 +1,11 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.FarmaciaDAO;
+import clinica.dao.interfaces.FarmaciaDao;
 import clinica.entidades.Farmacia;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FarmaciaDAOImpl implements FarmaciaDAO {
+public class FarmaciaDaoImpl implements FarmaciaDao {
     private final Map<Integer, Farmacia> farmacias = new HashMap<>();
     private int proximoId = 1;
 

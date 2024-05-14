@@ -1,12 +1,12 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.EspecialidadDAO;
+import clinica.dao.interfaces.EspecialidadDao;
 import clinica.entidades.Especialidad;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class EspecialidadDAOImpl implements EspecialidadDAO {
+public class EspecialidadDaoImpl implements EspecialidadDao {
     private final Map<Integer, Especialidad> especialidades = new HashMap<>();
     private int proximoId = 1;
 

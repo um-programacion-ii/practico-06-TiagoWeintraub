@@ -1,15 +1,11 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.RecetaDAO;
+import clinica.dao.interfaces.RecetaDao;
 import clinica.entidades.Receta;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RecetaDAOImpl implements RecetaDAO {
+public class RecetaDaoImpl implements RecetaDao {
     private final Map<Integer, Receta> recetas = new HashMap<>();
     private int proximoId = 1;
 

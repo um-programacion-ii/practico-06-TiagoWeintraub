@@ -1,19 +1,17 @@
 package clinica.servicios;
 
-import clinica.dao.implementaciones.TurnoDAOImpl;
-import clinica.dao.implementaciones.MedicoDAOImpl;
-import clinica.dao.implementaciones.PacienteDAOImpl;
+import clinica.dao.implementaciones.TurnoDaoImpl;
+import clinica.dao.implementaciones.MedicoDaoImpl;
 import clinica.entidades.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 
 public class GestionTurnoService {
     private static GestionTurnoService instancia;
-    private TurnoDAOImpl turnoDAO;
-    private MedicoDAOImpl medicoDAO;
+    private TurnoDaoImpl turnoDAO;
+    private MedicoDaoImpl medicoDAO;
 
 // Implementación de singleton
     public static GestionTurnoService getInstance() {
@@ -24,8 +22,8 @@ public class GestionTurnoService {
     }
 
     public GestionTurnoService() {
-        turnoDAO = new TurnoDAOImpl();
-        medicoDAO = new MedicoDAOImpl();
+        turnoDAO = new TurnoDaoImpl();
+        medicoDAO = new MedicoDaoImpl();
     }
 
     // Listar todos los medicos

@@ -1,9 +1,8 @@
 package clinica.dao.interfaces;
 
-import java.util.List;
 import clinica.entidades.Paciente;
 
-public interface PacienteDAO {
+public interface PacienteDao {
     Paciente crearPaciente(Paciente paciente);
     Paciente visualizarPaciente(int id);
     void actualizarPaciente(Paciente paciente);

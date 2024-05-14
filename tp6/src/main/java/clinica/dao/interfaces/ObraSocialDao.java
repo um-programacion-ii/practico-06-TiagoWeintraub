@@ -1,9 +1,8 @@
 package clinica.dao.interfaces;
 
 import clinica.entidades.ObraSocial;
-import java.util.List;
 
-public interface ObraSocialDAO {
+public interface ObraSocialDao {
     ObraSocial crearObraSocial(ObraSocial obraSocial);
     ObraSocial visualizarObraSocial(int id);
     void actualizarObraSocial(ObraSocial obraSocial);

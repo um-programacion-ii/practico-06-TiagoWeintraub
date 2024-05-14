@@ -1,15 +1,11 @@
 package clinica.dao.implementaciones;
 
-import clinica.dao.interfaces.DrogueriaDAO;
+import clinica.dao.interfaces.DrogueriaDao;
 import clinica.entidades.Drogueria;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DrogueriaDAOImpl implements DrogueriaDAO {
+public class DrogueriaDaoImpl implements DrogueriaDao {
     private final Map<Integer, Drogueria> droguerias = new HashMap<>();
     private int proximoId = 1;
 

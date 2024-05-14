@@ -2,7 +2,7 @@ package clinica.dao.interfaces;
 
 import clinica.entidades.Medicamento;
 
-public interface MedicamentoDAO {
+public interface MedicamentoDao {
     Medicamento crearMedicamento(Medicamento medicamento);
     Medicamento visualizarMedicamento(int id);
     void actualizarMedicamento(Medicamento medicamento);

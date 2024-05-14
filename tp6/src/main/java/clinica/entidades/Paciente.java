@@ -29,13 +29,15 @@ public class Paciente {
         turno.setMedico(medico);
         turno.setEspecialidad(especialidad);
         turno.setObraSocial(obraSocial);
-//        turnos.add(turno);
-//        medico.agregarTurno(turno);
         return turno;
     }
 
     public void comprarMedicamentos(Farmacia farmacia, Receta receta) {
         // Implementa la lógica para comprar los medicamentos de una receta en una droguería
+    }
+
+    public void agregarTurno(Turno turno) {
+        turnos.add(turno);
     }
 
     public void cancelarTurno(Turno turno) {

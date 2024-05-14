@@ -36,16 +36,7 @@ public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<String
     }
 
 public void agregarTurno(Turno turno) {
-        if (id == null) {
-            turno.setId(1);
-        }
-        else {
-            turno.setId(id+1);
-        }
-        System.out.println(turnos);
-        System.out.println(turno.getId());
         turnos.add(turno);
-
     }
 
 

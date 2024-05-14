@@ -1,14 +1,19 @@
 package clinica.servicios;
 
+import clinica.dao.implementaciones.TurnoDAOImpl;
+import clinica.dao.implementaciones.MedicoDAOImpl;
+import clinica.dao.implementaciones.PacienteDAOImpl;
+import clinica.entidades.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AtencionMedicoService {
     private static AtencionMedicoService instance = null;
     private static AtencionMedicoService atencionMedicoService = AtencionMedicoService.getInstance();
-
-
-    private AtencionMedicoService() {
-
-    }
+    private TurnoDAOImpl turnoDAO;
+    private MedicoDAOImpl medicoDAO;
+    private PacienteDAOImpl pacienteDAO;
 
     public static AtencionMedicoService getInstance() {
         if (instance == null) {
@@ -16,6 +21,14 @@ public class AtencionMedicoService {
         }
         return instance;
     }
+
+    public AtencionMedicoService() {
+        turnoDAO = new TurnoDAOImpl();
+        medicoDAO = new MedicoDAOImpl();
+        pacienteDAO = new PacienteDAOImpl();
+    }
+
+
 
 
 

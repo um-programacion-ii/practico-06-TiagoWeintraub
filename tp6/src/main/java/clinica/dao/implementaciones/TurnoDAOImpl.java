@@ -13,6 +13,8 @@ public class TurnoDAOImpl implements TurnoDAO {
     public Turno crearTurno(Turno turno) {
         turno.setId(proximoId++);
         turnos.put(turno.getId(), turno);
+        turno.getMedico().agregarTurno(turno);
+        turno.getPaciente().agregarTurno(turno);
         return turno;
     }
 
@@ -30,4 +32,5 @@ public class TurnoDAOImpl implements TurnoDAO {
     public void eliminarTurno(int id) {
         turnos.remove(id);
     }
+
 }

@@ -14,11 +14,11 @@ public class Farmacia {
     private Integer id;
     private String nombre;
     private String direccion;
+    private Map<Integer, Map<Medicamento,Integer>> pedidoDrogueria;
     private Map<Medicamento, Integer> medicamentosExistentes;
 
     public void iniciarPedido(Integer id, Medicamento medicamento, Integer cantidad) {
-        //gestorDeStock.verificarStock(medicamento, cantidad);
-        //gestorDeFarmacia.entregarPedido(medicamento, cantidad);
+
     }
 
     public void actualizarStock(Integer id ,Medicamento medicamento, Integer cantidad) {

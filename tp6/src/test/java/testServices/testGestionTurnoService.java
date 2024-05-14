@@ -239,7 +239,7 @@ public class testGestionTurnoService {
         paciente.setNombre("Maria");
         paciente.setApellido("Gomez");
         paciente.setObraSocial(obraSocial1);
-        paciente.setRecetas(null);
+        paciente.setRecetas(new ArrayList<>());
         List<Turno> listaTurnosPaciente = new ArrayList<>();
         paciente.setTurnos(listaTurnosPaciente);
 

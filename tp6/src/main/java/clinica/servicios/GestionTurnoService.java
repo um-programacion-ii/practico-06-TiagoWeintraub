@@ -53,6 +53,7 @@ public class GestionTurnoService {
     public Turno pacienteSolicitaTurno(Paciente paciente, Medico medico, Especialidad especialidad) {
         if (paciente.getObraSocial() == null && medico.getAtiendeParticular() && especialidad == medico.getEspecialidad()) { // Turno particular
             return turnoDAO.crearTurno(paciente.solicitarTurno(medico, medico.getEspecialidad(), null));
+
         }
         // Si la obra social del paciente está en la lista de obras sociales del médico se saca el turno
         else if (paciente.getObraSocial() != null && medico.getObrasSociales().contains(paciente.getObraSocial()) && especialidad == medico.getEspecialidad()) {

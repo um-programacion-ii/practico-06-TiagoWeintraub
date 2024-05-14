@@ -83,6 +83,7 @@ public class testGestionTurnoService {
 
         Especialidad especialidad = new Especialidad(1, "Cardiologia");
 
+//        List<Turno> turnos = new ArrayList<>();
         Medico medico = new Medico();
         medico.setNombre("Juan");
         medico.setApellido("Perez");
@@ -100,6 +101,7 @@ public class testGestionTurnoService {
         paciente.setRecetas(null);
         paciente.setTurnos(null);
 
+
         Turno turno = new Turno();
         turno.setId(2);
         turno.setPaciente(paciente);
@@ -107,6 +109,9 @@ public class testGestionTurnoService {
         turno.setEspecialidad(especialidad);
         turno.setObraSocial(null);
         Turno turnoCreado = gestionTurnoService.pacienteSolicitaTurno(paciente, medico, especialidad);
+        System.out.println(turnoCreado);
+        System.out.println(turno);
+        System.out.println(medico.getObrasSociales());
         assertEquals(turno, turnoCreado);
     }
 }

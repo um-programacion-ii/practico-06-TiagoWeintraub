@@ -3,6 +3,8 @@ package clinica.entidades;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +34,20 @@ public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<String
     public void finalizarAtencion() {
         this.estaAtendiendo = false;
     }
+
+public void agregarTurno(Turno turno) {
+        if (id == null) {
+            turno.setId(1);
+        }
+        else {
+            turno.setId(id+1);
+        }
+        System.out.println(turnos);
+        System.out.println(turno.getId());
+        turnos.add(turno);
+
+    }
+
 
     public void cancelarTurno(Turno turno) {
         this.turnos.remove(turno);

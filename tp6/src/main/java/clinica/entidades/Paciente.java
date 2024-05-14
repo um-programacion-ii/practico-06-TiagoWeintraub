@@ -29,6 +29,8 @@ public class Paciente {
         turno.setMedico(medico);
         turno.setEspecialidad(especialidad);
         turno.setObraSocial(obraSocial);
+//        turnos.add(turno);
+//        medico.agregarTurno(turno);
         return turno;
     }
 

@@ -13,6 +13,7 @@ public class RecetaDaoImpl implements RecetaDao {
     public Receta crearReceta(Receta receta) {
         receta.setId(proximoId++);
         recetas.put(receta.getId(), receta);
+        receta.getPaciente().recibirReceta(receta);
         return receta;
     }
 
@@ -28,6 +29,9 @@ public class RecetaDaoImpl implements RecetaDao {
 
     @Override
     public void eliminarReceta(int id) {
+
+
         recetas.remove(id);
+
     }
 }

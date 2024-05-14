@@ -21,6 +21,14 @@ public class Paciente {
         this.recetas.add(receta);
     }
 
+    public void eliminarReceta(Receta receta) {
+        this.recetas.remove(receta);
+    }
+
+    public void comprarMedicamentos(Farmacia farmacia ,Receta receta) {
+        farmacia.venderMedicamentos(receta);
+    }
+
 
     public Turno solicitarTurno(Medico medico, Especialidad especialidad, ObraSocial obraSocial) {
         // Sacar turno y agregar a la lista de turnos
@@ -30,10 +38,6 @@ public class Paciente {
         turno.setEspecialidad(especialidad);
         turno.setObraSocial(obraSocial);
         return turno;
-    }
-
-    public void comprarMedicamentos(Farmacia farmacia, Receta receta) {
-        // Implementa la lógica para comprar los medicamentos de una receta en una droguería
     }
 
     public void agregarTurno(Turno turno) {

@@ -22,7 +22,7 @@ public class Medico {
     private List<Turno> turnos;
     private Boolean estaAtendiendo;
 
-public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<String, Integer> medicamentos) {
+public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<Medicamento, Integer> medicamentos) {
     Receta receta = new Receta(id, paciente, medico, medicamentos);
     paciente.getRecetas().add(receta);
 }

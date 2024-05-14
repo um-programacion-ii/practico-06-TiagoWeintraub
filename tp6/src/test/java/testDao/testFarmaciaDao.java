@@ -13,7 +13,6 @@ import java.util.HashMap;
 public class testFarmaciaDao {
 
         private FarmaciaDaoImpl farmaciaDao;
-        private Farmacia farmacia;
 
         @BeforeEach
         public void setUp() {
@@ -27,44 +26,64 @@ public class testFarmaciaDao {
 //    private Map<Medicamento, Integer> medicamentosExistentes;
 
         @Test
-        public void testAgregarFarmacia() {
+        public void testCrearFarmacia() {
+            Farmacia farmacia = new Farmacia();
             farmacia.setNombre("Farmacity");
             farmacia.setDireccion("Av. Rivadavia 1234");
-//            farmacia.setTelefono("1234-5678");
-//            farmaciaDao.agregarFarmacia(farmacia);
-//            assertEquals(farmaciaDao.obtenerFarmacias().size(), 1);
+            farmacia.setPedidoDrogueria(new HashMap<Integer, Map<Medicamento,Integer>>());
+            farmacia.setMedicamentosExistentes(new HashMap<Medicamento, Integer>());
+
+            farmaciaDao.crearFarmacia(farmacia);
+
+            assertEquals("Farmacity", farmacia.getNombre());
         }
 
 
 
         @Test
         public void testObtenerFarmacia() {
+            Farmacia farmacia = new Farmacia();
             farmacia.setNombre("Farmacity");
-//            farmacia.setDireccion("Av. Rivadavia 1234");
-//            farmacia.setTelefono("1234-5678");
-//            farmaciaDao.agregarFarmacia(farmacia);
-//            assertEquals(farmaciaDao.obtenerFarmacia(1).getNombre(), "Farmacity");
+            farmacia.setDireccion("Av. Rivadavia 1234");
+            farmacia.setPedidoDrogueria(new HashMap<Integer, Map<Medicamento,Integer>>());
+            farmacia.setMedicamentosExistentes(new HashMap<Medicamento, Integer>());
+
+            farmaciaDao.crearFarmacia(farmacia);
+
+            assertEquals(farmacia, farmaciaDao.visualizarFarmacia(1));
+
         }
 
         @Test
         public void testActualizarFarmacia() {
+            Farmacia farmacia = new Farmacia();
             farmacia.setNombre("Farmacity");
-//            farmacia.setDireccion("Av. Rivadavia 1234");
-//            farmacia.setTelefono("1234-5678");
-//            farmaciaDao.agregarFarmacia(farmacia);
-//            farmacia.setNombre("Farmacity 2");
-//            farmaciaDao.actualizarFarmacia(farmacia);
-//            assertEquals(farmaciaDao.obtenerFarmacia(1).getNombre(), "Farmacity 2");
+            farmacia.setDireccion("Av. Rivadavia 1234");
+            farmacia.setPedidoDrogueria(new HashMap<Integer, Map<Medicamento,Integer>>());
+            farmacia.setMedicamentosExistentes(new HashMap<Medicamento, Integer>());
+
+            farmaciaDao.crearFarmacia(farmacia);
+
+            farmacia.setNombre("Farmacity 2.0");
+            farmaciaDao.actualizarFarmacia(farmacia);
+
+            assertEquals("Farmacity 2.0", farmaciaDao.visualizarFarmacia(1).getNombre());
         }
 
         @Test
         public void testEliminarFarmacia() {
+            Farmacia farmacia = new Farmacia();
+            farmacia.setId(1);
             farmacia.setNombre("Farmacity");
-//            farmacia.setDireccion("Av. Rivadavia 1234");
-//            farmacia.setTelefono("1234-5678");
-//            farmaciaDao.agregarFarmacia(farmacia);
-//            farmaciaDao.eliminarFarmacia(1);
-//            assertEquals(farmaciaDao.obtenerFarmacias().size(), 0);
+            farmacia.setDireccion("Av. Rivadavia 1234");
+            farmacia.setPedidoDrogueria(new HashMap<Integer, Map<Medicamento,Integer>>());
+            farmacia.setMedicamentosExistentes(new HashMap<Medicamento, Integer>());
+
+            farmaciaDao.crearFarmacia(farmacia);
+            assertEquals(farmacia, farmaciaDao.visualizarFarmacia(1));
+
+            farmaciaDao.eliminarFarmacia(1);
+            assertEquals(null, farmaciaDao.visualizarFarmacia(1));
         }
 
 }

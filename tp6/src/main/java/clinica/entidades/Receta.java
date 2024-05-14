@@ -13,5 +13,5 @@ public class Receta {
     private Integer id;
     private Paciente paciente;
     private Medico medico;
-    private Map<String, Integer> medicamentos;
+    private Map<Medicamento, Integer> medicamentos;
 }

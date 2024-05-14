@@ -25,10 +25,12 @@ public class Farmacia {
         //gestorDeStock.actualizarStock(medicamento, cantidad);
     }
 
-    public void venderMedicamento(Integer id ,Medicamento medicamento, Integer cantidad) {
-        //gestorDeStock.verificarStock(medicamento, cantidad);
-        //gestorDeFarmacia.entregarPedido(medicamento, cantidad);
-        //gestorDeStock.actualizarStock(medicamento, cantidad);
+    public void venderMedicamentos(Receta receta) {
+        receta.getMedicamentos().forEach((medicamento, cantidad) -> {
+            if (medicamentosExistentes.containsKey(medicamento)) {
+                medicamentosExistentes.put(medicamento, medicamentosExistentes.get(medicamento) - cantidad);
+            }
+        });
     }
 
 }

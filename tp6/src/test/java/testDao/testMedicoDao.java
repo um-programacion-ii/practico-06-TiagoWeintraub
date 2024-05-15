@@ -34,8 +34,8 @@ public class testMedicoDao {
         Especialidad especialidad = new Especialidad(1, "Cardiologia");
 
         Medico medico = new Medico();
-        medico.setNombre("Juan");
-        medico.setApellido("Perez");
+        medico.setNombre("Julian");
+        medico.setApellido("Alvarez");
         medico.setEspecialidad(especialidad);
         medico.setObrasSociales(listaObrasSociales);
         medico.setAtiendeParticular(true);
@@ -59,8 +59,8 @@ public void testVisualizarMedico() {
         Especialidad especialidad = new Especialidad(1, "Cardiologia");
 
         Medico medico = new Medico();
-        medico.setNombre("Juan");
-        medico.setApellido("Perez");
+        medico.setNombre("Lautaro");
+        medico.setApellido("Martinez");
         medico.setEspecialidad(especialidad);
         medico.setObrasSociales(listaObrasSociales);
         medico.setAtiendeParticular(true);
@@ -86,8 +86,8 @@ public void testVisualizarMedico() {
 
         Medico medico = new Medico();
         medico.setId(1);
-        medico.setNombre("Juan");
-        medico.setApellido("Perez");
+        medico.setNombre("Emiliano");
+        medico.setApellido("Martinez");
         medico.setEspecialidad(especialidad);
         medico.setObrasSociales(listaObrasSociales);
         medico.setAtiendeParticular(true);
@@ -99,8 +99,8 @@ public void testVisualizarMedico() {
 
         Medico medicoActualizado = new Medico();
         medicoActualizado.setId(1);
-        medicoActualizado.setNombre("Juan");
-        medicoActualizado.setApellido("Perez Alias El Actualizado");
+        medicoActualizado.setNombre("Emi");
+        medicoActualizado.setApellido("El Dibu Martinez");
         medicoActualizado.setEspecialidad(especialidad);
         medicoActualizado.setObrasSociales(listaObrasSociales);
         medicoActualizado.setAtiendeParticular(true);
@@ -127,8 +127,8 @@ public void testVisualizarMedico() {
 
         Medico medico = new Medico();
         medico.setId(1);
-        medico.setNombre("Juan");
-        medico.setApellido("Perez");
+        medico.setNombre("Alexis");
+        medico.setApellido("Mac Allister");
         medico.setEspecialidad(especialidad);
         medico.setObrasSociales(listaObrasSociales);
         medico.setAtiendeParticular(true);

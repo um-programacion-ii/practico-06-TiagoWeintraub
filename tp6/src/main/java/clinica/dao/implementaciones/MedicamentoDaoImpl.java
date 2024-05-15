@@ -3,6 +3,7 @@ package clinica.dao.implementaciones;
 import clinica.dao.interfaces.MedicamentoDao;
 import clinica.entidades.Medicamento;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MedicamentoDaoImpl implements MedicamentoDao {

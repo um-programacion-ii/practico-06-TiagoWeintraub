@@ -70,8 +70,24 @@ public class testGestionTurnoService {
         medico2.setTurnos(listaTurnosMedico2);
         medicoDAO.crearMedico(medico2);
 
-
         listaMedicosTest.add(medico2);
+
+        //medico3
+        Medico medico3 = new Medico();
+        medico3.setId(3);
+        medico3.setNombre("Juan");
+        medico3.setApellido("Perez");
+        medico3.setEspecialidad(especialidad);
+        medico3.setObrasSociales(listaObrasSociales);
+        medico3.setAtiendeParticular(true);
+        medico3.setEstaAtendiendo(false);
+        List<Turno> listaTurnosMedico3 = new ArrayList<>();
+        medico3.setTurnos(listaTurnosMedico3);
+        medicoDAO.crearMedico(medico3);
+
+        listaMedicosTest.add(medico3);
+
+
 
         assertEquals(listaMedicosTest, medicoDAO.listaMedicos());
     }

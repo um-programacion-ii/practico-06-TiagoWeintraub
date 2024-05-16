@@ -15,9 +15,9 @@ public class Drogueria {
     private String nombre;
     private String direccion;
     private Integer telefono;
+
+    public Map<Medicamento, Integer> entregarPedido(Map<Medicamento, Integer> pedido) {
+            return pedido;
+    }
 }
 
-//public void entregarPedido(Integer id, String receta, Integer cantidad) {
-//        Medicamento medicamento = entry.getKey();
-//        Integer cantidadNecesaria = entry.getValue();
-//}

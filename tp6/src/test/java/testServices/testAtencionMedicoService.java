@@ -148,7 +148,6 @@ public class testAtencionMedicoService {
         List<Turno> listaTurnosMedico = new ArrayList<>();
         medico.setTurnos(listaTurnosMedico);
 
-
         atencionMedicoService.finalizarAtencion(medico);
         assertEquals(false, medico.getEstaAtendiendo());
     }

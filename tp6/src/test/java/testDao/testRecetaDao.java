@@ -42,6 +42,7 @@ public class testRecetaDao {
         receta.setMedicamentos(medicamentos);
         receta.setPaciente(paciente);
         receta.setMedico(new Medico());
+        receta.setRecetaUtilizada(false);
         Receta recetaCreada = recetaDAO.crearReceta(receta);
         assertEquals(receta, recetaCreada);
         assertEquals(paciente.getRecetas().get(0), recetaCreada);
@@ -70,6 +71,7 @@ public class testRecetaDao {
 
         receta.setPaciente(paciente);
         receta.setMedico(new Medico());
+        receta.setRecetaUtilizada(false);
         Receta recetaCreada = recetaDAO.crearReceta(receta);
         Receta recetaVisualizada = recetaDAO.visualizarReceta(recetaCreada.getId());
         assertEquals(recetaCreada, recetaVisualizada);
@@ -99,6 +101,7 @@ public class testRecetaDao {
         receta.setMedico(new Medico());
         Receta recetaCreada = recetaDAO.crearReceta(receta);
         recetaCreada.setMedico(new Medico());
+        receta.setRecetaUtilizada(false);
         recetaDAO.actualizarReceta(recetaCreada);
         Receta recetaActualizada = recetaDAO.visualizarReceta(recetaCreada.getId());
         assertEquals(recetaCreada, recetaActualizada);
@@ -126,9 +129,73 @@ public class testRecetaDao {
 
         receta.setPaciente(paciente);
         receta.setMedico(new Medico());
+        receta.setRecetaUtilizada(false);
         Receta recetaCreada = recetaDAO.crearReceta(receta);
         recetaDAO.eliminarReceta(recetaCreada.getId());
         Receta recetaEliminada = recetaDAO.visualizarReceta(recetaCreada.getId());
         assertEquals(null, recetaEliminada);
+    }
+
+    @Test
+    public void testEliminarMedicamentos() {
+        Paciente paciente = new Paciente();
+        paciente.setDni(40123432);
+        paciente.setNombre("Maria");
+        paciente.setApellido("Gomez");
+        paciente.setObraSocial(null);
+        List<Receta> listaRecetas = new ArrayList<>();
+        paciente.setRecetas(listaRecetas);
+        List<Turno> listaTurnosPaciente = new ArrayList<>();
+        paciente.setTurnos(listaTurnosPaciente);
+
+        Medicamento medicamento = new Medicamento();
+        medicamento.setNombre("Ibupirac 600");
+
+        Receta receta = new Receta();
+
+        Map<Medicamento, Integer> medicamentos = new HashMap<Medicamento, Integer>();
+        medicamentos.put(medicamento, 2);
+
+        receta.setPaciente(paciente);
+        receta.setMedico(new Medico());
+        receta.setRecetaUtilizada(false);
+        receta.setMedicamentos(medicamentos);
+
+        paciente.recibirReceta(receta);
+
+        assertEquals(1, paciente.getRecetas().size());
+    }
+
+    @Test
+    public void testRecetaUsada() {
+        Paciente paciente = new Paciente();
+        paciente.setDni(40123432);
+        paciente.setNombre("Maria");
+        paciente.setApellido("Gomez");
+        paciente.setObraSocial(null);
+        List<Receta> listaRecetas = new ArrayList<>();
+        paciente.setRecetas(listaRecetas);
+        List<Turno> listaTurnosPaciente = new ArrayList<>();
+        paciente.setTurnos(listaTurnosPaciente);
+
+        Medicamento medicamento = new Medicamento();
+        medicamento.setNombre("Ibupirac 600");
+
+        Receta receta = new Receta();
+
+        Map<Medicamento, Integer> medicamentos = new HashMap<Medicamento, Integer>();
+        medicamentos.put(medicamento, 2);
+
+        receta.setPaciente(paciente);
+        receta.setMedico(new Medico());
+        receta.setRecetaUtilizada(false);
+        receta.setMedicamentos(medicamentos);
+
+        paciente.recibirReceta(receta);
+
+        assertEquals(false, receta.getRecetaUtilizada());
+
+        receta.setRecetaUtilizada(true);
+        assertEquals(true, receta.getRecetaUtilizada());
     }
 }

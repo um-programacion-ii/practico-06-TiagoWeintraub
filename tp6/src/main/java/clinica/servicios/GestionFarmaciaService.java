@@ -40,6 +40,9 @@ public class GestionFarmaciaService {
                     // Si la farmacia tiene stock, se vende el medicamento
                     if (farmacia.comprobarStock(verificarStockMedicamento)) {
                         farmacia.venderMedicamentos(receta);
+                        // Se elimina el medicamento de la receta
+                        receta.eliminarMedicamento(medicamento);
+                        receta.recetaUsada();
                     } else {
                         // Si no tiene stock, se pide a la drogueria
                         System.out.println("La farmacia no tiene stock del medicamento"+ medicamento +" y pide a la drogueria");
@@ -47,6 +50,10 @@ public class GestionFarmaciaService {
                         pedido.put(medicamento, cantidad);
                         Map<Medicamento, Integer> pedidoRecibido = farmacia.pedidoDrogueria(pedido);
                         farmacia.actualizarStock(pedidoRecibido);
+                        System.out.println("La farmacia recibe el pedido de la drogueria");
+                        farmacia.venderMedicamentos(receta);
+                        receta.eliminarMedicamento(medicamento);
+                        receta.recetaUsada();
                     }
                 }
             }

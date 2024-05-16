@@ -23,7 +23,7 @@ public class Medico {
     private Boolean estaAtendiendo;
 
 public void hacerReceta(Integer id, Paciente paciente, Medico medico, Map<Medicamento, Integer> medicamentos) {
-    Receta receta = new Receta(id, paciente, medico, medicamentos);
+    Receta receta = new Receta(id, paciente, medico, false, medicamentos);
     paciente.getRecetas().add(receta);
 }
     public void atenderPaciente() {
